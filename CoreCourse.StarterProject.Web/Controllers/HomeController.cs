@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using CoreCourse.StarterProject.Web.Models;
 
 namespace CoreCourse.StarterProject.Web.Controllers
 {
@@ -15,7 +17,8 @@ namespace CoreCourse.StarterProject.Web.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Look ma! No ha..awtch!";
+            ViewData["Message"] = "WATCH me ma! No hands!";
+
             return View();
         }
 
@@ -26,9 +29,15 @@ namespace CoreCourse.StarterProject.Web.Controllers
             return View();
         }
 
-        public IActionResult Error()
+        public IActionResult Privacy()
         {
             return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
